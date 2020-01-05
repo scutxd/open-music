@@ -26,8 +26,8 @@ def main(**kwargs):
 
     search_grp = parser.add_argument_group('Search options')
     search_grp.add_argument(
-        '-s', '--source', metavar='source', default=flm.Source.QQ,
-        help='Which source you want to search. now support: qq(QQ), kw(酷我), default source is qq'
+        '-s', '--source', metavar='source', default=flm.Source.MG,
+        help='Which source you want to search. currently support: qq(QQ), kw(酷我), mg(咪咕). default source is mg'
     )
 
     search_grp.add_argument(

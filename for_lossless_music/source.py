@@ -3,6 +3,7 @@ from enum import Enum
 class Source(Enum):
     QQ   = 'qq'
     KUWO = 'kw'
+    MG   = 'mg'
 
 def str2source(s):
     if isinstance(s, Source):
