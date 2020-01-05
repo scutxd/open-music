@@ -22,7 +22,6 @@ install
 usage example
 -------
 ```
-
    for-lossless-music 人质 #搜索歌曲人质
    for-lossless-music 人质 -i 1 -o ~/Downloads #下载搜索人质id=1的歌曲到～/Downloads目录
    for-lossless-music 人质 -i 1 -o ~/Downloads -c # 同上但是会下载到自动创建歌手文件夹中

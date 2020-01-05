@@ -4,7 +4,7 @@ import for_lossless_music
 with open('requirements.txt') as f:
     requires = f.readlines()
 
-with open('README.rst') as f:
+with open('README.md') as f:
     readme = f.read()
 
 setup(
