@@ -1,11 +1,10 @@
-
 from .moresound import Moresound, Source, str2source
 from .song import songs2table, FoundSong, foundsong2table
 from .download import download
 from .qqmusic import QQMusic
 from .song import Song
 from .quality import *
-
+from .neteasecloudmusic import fetch_playlist
 __version__ = '0.1.3'
 
 
