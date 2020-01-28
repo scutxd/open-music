@@ -22,7 +22,9 @@ class Test(unittest.TestCase):
         self.assertEqual(cm.exception.code, 1)
 
     def test_download_song(self):
-        flm.download_song('不谓侠', flm.Source.MG)
+        # flm.download_song('不谓侠', flm.Source.MG)
+        # flm.download_song('Wham Bam Shang-A-Lang', flm.Source.MG)
+        flm.download_song('Levels', flm.Source.MG)
 
     def test_download_all_songs_in_playlist(self):
         correct_url = 'https://music.163.com/#/playlist?id=2594603185'

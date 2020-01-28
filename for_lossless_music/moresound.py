@@ -75,20 +75,23 @@ class Moresound:
         return totalnum, res[:num]
 
     @staticmethod
-    def get_download_urls(song):
+    def get_download_urls(song: Song):
+        logger.debug('song.source.value={0},song.token={1}'.format(
+            song.source.value, song.token))
         r = requests.post(
             'https://moresound.tk/music/api.php?get_song=' + song.source.value,
             'mid={mid}'.format(mid=song.token),
             headers=headers,
         )
         json = r.json()
+        logger.debug('result.json={}'.format(json))
         urls = {}
         for k, v in json['url'].items():
-            r = requests.post(
-                'https://moresound.tk/music/' + v,
-                headers=headers,
-            )
             try:
+                r = requests.post(
+                    'https://moresound.tk/music/' + v,
+                    headers=headers,
+                )
                 urls[k] = r.json()['url']
             except:
                 pass
@@ -99,13 +102,12 @@ class Moresound:
         logger.debug('song_name={0}, source={1}'.format(song_name, source))
         total, songs = Moresound.search(song_name, source)
         if not len(songs):
-            print('Could not find')
-            sys.exit()
+            logger.error('Could not find')
+            return
         urls = Moresound.get_download_urls(songs[0])
         best_quality = find_best_quality(urls)
         if not best_quality:
-            print('Could not find')
-            sys.exit()
+            logger.error('Could not find')
         singer = ','.join(songs[0].singers)
         download(
             urls[best_quality], '{singer}-{songname}.{suffix}'.format(
