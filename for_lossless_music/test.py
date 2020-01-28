@@ -24,6 +24,10 @@ class Test(unittest.TestCase):
     def test_download_song(self):
         flm.download_song('不谓侠', flm.Source.MG)
 
+    def test_download_all_songs_in_playlist(self):
+        correct_url = 'https://music.163.com/#/playlist?id=2594603185'
+        flm.download_all_songs_in_playlist(correct_url, flm.Source.MG)
+
 
 if __name__ == '__main__':
     unittest.main()

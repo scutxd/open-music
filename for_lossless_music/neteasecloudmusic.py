@@ -38,33 +38,9 @@ def fetch_playlist(url):
     return song_list
 
 
-def download_song_with_playlist(url,
-                                source,
-                                args_index,
-                                page,
-                                classify='--classify',
-                                output_path=''):
+def download_all_songs_in_playlist(url, source):
+    logger.debug('url={0}, source={1}'.format(url, source))
     song_list = fetch_playlist(url)
     for song_name in song_list:
-        total, songs = flm.search(song_name, source, args_index, 1)
-        if not len(songs):
-            print('Could not find')
-            sys.exit()
-        print(flm.songs2table(songs))
-        urls = flm.get_download_urls(songs[0])
-        best_quality = flm.find_best_quality(urls)
-        if not best_quality:
-            print('Could not find')
-            sys.exit()
-        singer = ','.join(songs[0].singers)
-        input_path = os.path.abspath(output_path)
-        if classify:
-            input_path += '/' + singer
-        os.makedirs(input_path, exist_ok=True)
-        flm.download(
-            urls[best_quality], '{path}/{singer}-{songname}.{suffix}'.format(
-                path=input_path,
-                singer=singer,
-                songname=songs[0].name,
-                suffix=flm.get_suffix_by_quality(best_quality),
-            ))
+        flm.download_song(song_name, source)
+    return

@@ -4,7 +4,7 @@ from .download import download
 from .qqmusic import QQMusic
 from .song import Song
 from .quality import *
-from .neteasecloudmusic import fetch_playlist
+from .neteasecloudmusic import fetch_playlist, download_all_songs_in_playlist
 __version__ = '0.1.3'
 
 
