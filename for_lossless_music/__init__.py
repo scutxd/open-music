@@ -20,3 +20,7 @@ def get_download_urls(song: Song):
         return QQMusic.get_download_urls(song)
     else:
         return Moresound.get_download_urls(song)
+
+
+def download_song(keyword, source: Source, page=1, num=20):
+    return Moresound.download_song(keyword, source, page, num)

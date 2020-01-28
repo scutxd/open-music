@@ -21,6 +21,9 @@ class Test(unittest.TestCase):
             flm.fetch_playlist(wrong_url)
         self.assertEqual(cm.exception.code, 1)
 
+    def test_download_song(self):
+        flm.download_song('不谓侠', flm.Source.MG)
+
 
 if __name__ == '__main__':
     unittest.main()
