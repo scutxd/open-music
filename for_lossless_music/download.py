@@ -1,5 +1,5 @@
 import requests
-from .progressbar import SimpleProgressBar
+# from .progressbar import SimpleProgressBar
 
 
 def download(url, dst):
@@ -7,13 +7,13 @@ def download(url, dst):
         url,
         stream=True,
     )
-    bar = SimpleProgressBar(int(r.headers['Content-Length']))
+    # bar = SimpleProgressBar(int(r.headers['Content-Length']))
     with open(dst, 'wb') as f:
         CHUNK_SIZE = 256 * 1024
         for chunk in r.iter_content(chunk_size=CHUNK_SIZE):
             if not chunk:
                 break
             f.write(chunk)
-            bar.update_received(CHUNK_SIZE)
+            # bar.update_received(CHUNK_SIZE)
 
-    bar.done()
+    # bar.done()
