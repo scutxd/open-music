@@ -65,7 +65,9 @@ class Moresound:
             tags = ls[1:-1]
             album = ls[-1]
             interval = e['interval'] if 'interval' in e else ''
-            singer = [s['name'] for s in e['singer']]
+            singer = [s['name'] for s in e['singer']
+                      ] if 'singer' in e else ''  # 修正如果singer为空导致异常的情况
+
             token = e['songmid']
 
             res.append(
