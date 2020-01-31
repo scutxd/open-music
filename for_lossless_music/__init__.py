@@ -22,5 +22,5 @@ def get_download_urls(song: Song):
         return Moresound.get_download_urls(song)
 
 
-def download_song(keyword, source: Source, page=1, num=20):
+def download_song(keyword, source: Source, page=1, num=1):
     return Moresound.download_song(keyword, source, page, num)
